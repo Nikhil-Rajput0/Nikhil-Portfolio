@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  font-family: "lato", "sans-serif";
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  /* scroll-behavior: smooth; */
+}
+
+.blink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: -1;
+  background-color: #1a1a1a;
+  transition: 0.4s ease-in;
+}
+.blink-2::before {
+  background-color: #0ff;
+}
+
+.blink:hover::before {
+  width: 100%;
+}
+.blink:hover {
+  color: #0ff;
+}
+.blink-2:hover {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+@keyframes showRight {
+  0% {
+    width: 100%;
+    left: 0;
+    z-index: 4;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+    z-index: -1;
+  }
+}
+
+.active {
+  color: rgb(28, 189, 189);
+}
