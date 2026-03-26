@@ -46,7 +46,7 @@ function Footer() {
             </div>
             <div className="hidden sm:flex row-1 col-3 md:col-4 connect  flex-col items-center">
               <h4 className="footer-head  text-2xl text-[#0bf]">Connect</h4>
-              <div className="flex gap-2">
+              <div className="flex gap-2 overflow-hidden">
                 <a
                   target="_blank"
                   rel="noopener"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { color, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { IoReorderThree } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { GrDownload } from "react-icons/gr";
