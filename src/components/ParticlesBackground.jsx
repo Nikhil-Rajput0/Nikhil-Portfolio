@@ -53,13 +53,13 @@ const ParticlesBackground = () => {
             value: 100,
           },
           color: {
-            value: "#fff", // white particles
+            value: "#0ff", // white particles
           },
           shape: {
             type: "circle",
           },
           opacity: {
-            value: 0.2,
+            value: 0.4,
           },
           size: {
             value: { min: 1, max: 2 },

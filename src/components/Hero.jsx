@@ -8,13 +8,14 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { FaHireAHelper } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { GrDownload } from "react-icons/gr";
-import pictureDesign from "../assets/design.png";
+import Design from "../assets/background.png";
 
 function Hero() {
   return (
     <section className="px-[48px] pt-[110px] pb-[32~px] md:px-[96px] md:py-[100px]  md:pb-0 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center">
-        <div className="mt-10 sm:mt-0 flex items-center justify-center">
+        <div className="mt-10 sm:mt-0 flex items-center justify-center relative overflow-hidden">
+          <img src={Design} className="absolute -bottom-15 right-0" />
           <picture>
             <img
               src={profilePicture}
