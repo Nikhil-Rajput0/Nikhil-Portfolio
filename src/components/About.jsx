@@ -2,7 +2,6 @@ import React from "react";
 import Profile from "../assets/profile.png";
 import { IoLocationOutline, IoMailOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet";
 
 function About() {
   return (

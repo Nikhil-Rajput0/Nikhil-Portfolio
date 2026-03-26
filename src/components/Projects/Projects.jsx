@@ -1,10 +1,11 @@
 import React from "react";
 import Projectdesc from "./Projectdesc";
+import Image from "../../assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png";
 import { motion } from "framer-motion";
 
 const projects = [
   {
-    img: "src/assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png",
+    img: Image,
     name: "Igonito-",
     about: "A movie downloader",
     id: 1,
@@ -13,7 +14,7 @@ const projects = [
     btn: ["View Live", "GitHub"],
   },
   {
-    img: "src/assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png",
+    img: Image,
     name: "Ginn-",
     about: "A movie downloader",
     id: 2,
@@ -22,7 +23,7 @@ const projects = [
     btn: ["View Live", "GitHub"],
   },
   {
-    img: "src/assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png",
+    img: Image,
     name: "Splash-",
     about: "A movie downloader",
     id: 3,
@@ -31,7 +32,7 @@ const projects = [
     btn: ["View Live", "GitHub"],
   },
   {
-    img: "src/assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png",
+    img: Image,
     name: "Parano-",
     about: "A movie downloader",
     id: 4,

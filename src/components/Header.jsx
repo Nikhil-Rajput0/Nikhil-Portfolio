@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { IoReorderThree } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 import { GrDownload } from "react-icons/gr";
+import { Link } from "react-scroll";
 
 function Header() {
   const [activeLink, SetActiveLink] = useState("home");

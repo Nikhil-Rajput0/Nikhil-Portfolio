@@ -100,9 +100,16 @@ function Hero() {
           </div>
 
           <div className="flex gap-6 md:px-0">
-            <button className="hidden lg:inline-flex blink z-1 relative font-[600]  bg-[#0ff] w-[150px] items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[8px] cursor-pointer overflow-hidden">
-              <FaHireAHelper className="mr-1" /> Hire me
-            </button>
+            <a
+              target="_blank"
+              rel="noopener"
+              aria-label="linkedin logo"
+              href="https://www.linkedin.com/in/nikhil-rajput-a14716275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            >
+              <button className="hidden lg:inline-flex blink z-1 relative font-[600]  bg-[#0ff] w-[150px] items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[8px] cursor-pointer overflow-hidden">
+                <FaHireAHelper className="mr-1" /> Hire me
+              </button>
+            </a>
             <button className="lg:hidden blink z-1 relative inline-flex bg-[#0ff] w-[150px] items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[8px] cursor-pointer overflow-hidden">
               <GrDownload className="mr-1" /> Resume
             </button>

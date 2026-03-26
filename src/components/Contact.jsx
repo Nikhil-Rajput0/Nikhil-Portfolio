@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoMailOutline } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useFormStatus } from "react-dom";
+import supabase from "../_utils/supabase";
+
 function Contact() {
   const [inputValue, setInputValue] = useState({
     name: "",
@@ -11,11 +13,40 @@ function Contact() {
     mobile: "",
     notes: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setInputValue({ name: "", email: "", mobile: "", notes: "" });
+    console.log(inputValue);
+
+    setIsLoading(true);
+    const { data, error } = await supabase
+      .from("contact-form")
+      .insert([
+        {
+          name: inputValue.name,
+          email: inputValue.email,
+          mobile: inputValue.mobile,
+          notes: inputValue.notes,
+        },
+      ])
+      .single();
+    if (error) {
+      setMessage("Error: 💥", err);
+    } else {
+      setMessage("Form submitted successfully😘");
+    }
+    setIsLoading(false);
+
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 3000);
+
+    setIsOpen(true);
   };
 
   const handleChange = (e) => {
@@ -87,7 +118,7 @@ function Contact() {
                 </div>
               </div>
             </div>
-            <div className="border border-cyan-400 p-5 text-[#f5f5f5] rounded-lg">
+            <div className="border relative border-cyan-400 p-5 text-[#f5f5f5] rounded-lg">
               <form className="flex flex-col gap-3 p-2" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-1  px-1 py-1 overflow-hidden">
                   <label htmlFor="full-name">Full name</label>
@@ -97,6 +128,7 @@ function Contact() {
                     onChange={handleChange}
                     className="bg-[#f5f5f5] text-[#444] py-1 px-3 rounded-md"
                     type="text"
+                    disabled={isLoading}
                     name="name"
                     placeholder="Enter your name"
                     required
@@ -108,6 +140,7 @@ function Contact() {
                     <input
                       id="mail"
                       name="email"
+                      disabled={isLoading}
                       value={inputValue.email}
                       onChange={handleChange}
                       className="bg-[#f5f5f5] text-[#444] py-1 px-3 rounded-md"
@@ -121,6 +154,7 @@ function Contact() {
                     <input
                       id="phone"
                       name="mobile"
+                      disabled={isLoading}
                       value={inputValue.mobile}
                       onChange={handleChange}
                       className="bg-[#f5f5f5] text-[#444] py-1 px-3 rounded-md"
@@ -136,6 +170,7 @@ function Contact() {
                     className="bg-[#f5f5f5]  text-[#444] py-1 px-3 w-full rounded-md "
                     id="message"
                     name="notes"
+                    disabled={isLoading}
                     value={inputValue.notes}
                     onChange={handleChange}
                     placeholder="Write your message here"
@@ -144,11 +179,19 @@ function Contact() {
                   ></textarea>
                 </div>
                 <div className="pt-2">
-                  <button className="blink z-1 relative font-[600] text-[#1a1a1a] bg-[#408787] w-full items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer overflow-hidden">
-                    Submit
+                  <button
+                    disabled={isLoading}
+                    className="blink z-1 relative font-[600] text-[#1a1a1a] bg-[#408787] w-full items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer overflow-hidden"
+                  >
+                    {isLoading ? "Submitting......" : "Submit"}
                   </button>
                 </div>
               </form>
+              {isOpen && (
+                <p className="absolute top-75 right-15 z-10 border-2 shadow-2xl border-green-900 bg-gray-700 text-white text-lg font-semibold rounded-xl p-2 ">
+                  {message}
+                </p>
+              )}
             </div>
           </div>
         </div>

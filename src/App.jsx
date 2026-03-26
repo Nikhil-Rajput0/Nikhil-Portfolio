@@ -13,6 +13,7 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
+      lerp: 0.1,
       duration: 1.2,
       smoothWheel: true,
     });
