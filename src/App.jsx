@@ -10,15 +10,15 @@ import Footer from "./components/Footer.jsx";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 
+let lenis;
+
 function App() {
   useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1,
-      duration: 1.2,
+    lenis = new Lenis({
+      duration: 1,
       smoothWheel: true,
+      smoothTouch: false,
     });
-
-    window.lenis = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -27,7 +27,32 @@ function App() {
 
     requestAnimationFrame(raf);
 
+    // ✅ Handle anchor links
+    const anchors = document.querySelectorAll('a[href^="#"]');
+
+    const handleClick = (e) => {
+      e.preventDefault();
+
+      const targetId = e.currentTarget.getAttribute("href");
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        lenis.scrollTo(target, {
+          offset: -80, // 🔥 adjust according to your navbar height
+          duration: 1,
+        });
+      }
+    };
+
+    anchors.forEach((anchor) => {
+      anchor.addEventListener("click", handleClick);
+    });
+
+    // cleanup
     return () => {
+      anchors.forEach((anchor) => {
+        anchor.removeEventListener("click", handleClick);
+      });
       lenis.destroy();
     };
   }, []);
