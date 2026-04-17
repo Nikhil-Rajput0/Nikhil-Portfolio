@@ -1,16 +1,17 @@
 import React from "react";
 import Projectdesc from "./Projectdesc";
 import Image from "../../assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png";
+import Project1 from "../../assets/project1.png";
 import { motion } from "framer-motion";
 
 const projects = [
   {
-    img: Image,
-    name: "Igonito-",
-    about: "A movie downloader",
+    img: Project1,
+    name: "HireMindAi-",
+    about: "Site for freshers",
     id: 1,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima animi praesentium quisquam qui consectetur iure ut accusamus, deleniti quos fuga.",
-    skills: ["React", "Tailwind", "Html", "Css"],
+    desc: "A online platform where you can prepares for your interview, by attending online interviews using Ai. Pay less enjoy more or just use free version.",
+    skills: ["Next.js", "Tailwind", "Node.js", "MongoDb"],
     btn: ["View Live", "GitHub"],
   },
   {
