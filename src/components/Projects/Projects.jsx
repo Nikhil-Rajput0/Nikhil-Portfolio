@@ -9,6 +9,8 @@ const projects = [
     img: Project1,
     name: "HireMindAi-",
     about: "Site for freshers",
+    liveUrl: "https://hiremind-ai-org.vercel.app",
+    githubLink: "https://github.com/Nikhil-Rajput0/HireMind-Ai",
     id: 1,
     desc: "A online platform where you can prepares for your interview, by attending online interviews using Ai. Pay less enjoy more or just use free version.",
     skills: ["Next.js", "Tailwind", "Node.js", "MongoDb"],

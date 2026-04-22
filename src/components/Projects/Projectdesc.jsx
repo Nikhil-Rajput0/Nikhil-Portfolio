@@ -27,14 +27,20 @@ function Projectdesc({ header }) {
           ))}
         </div>
         <div className="flex py-5 gap-1">
-          <button className="blink shadow-xl/60 z-1 relative font-semibold inline-flex bg-gradient-to-r from-[#157171] via-[#0bf] to-[#0ff] w-full items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer overflow-hidden">
-            {header.btn[0]}
-          </button>
           <a
             target="_blank"
             rel="noopener"
-            aria-label="Hiremind Ai"
-            href={"https://github.com/Nikhil-Rajput0/HireMind-Ai"}
+            aria-label="Project Live Link"
+            href={header.liveUrl}
+            className="blink shadow-xl/60 z-1 relative font-semibold inline-flex bg-gradient-to-r from-[#157171] via-[#0bf] to-[#0ff] w-full items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer overflow-hidden"
+          >
+            {header.btn[0]}
+          </a>
+          <a
+            target="_blank"
+            rel="noopener"
+            aria-label="Project Github link"
+            href={header.githubLink}
             className=" blink blink-2 shadow-xl/60 z-1 relative font-semibold inline-flex bg-transparent text-[#0ff] w-full items-center justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer  overflow-hidden"
           >
             {header.btn[1]}
