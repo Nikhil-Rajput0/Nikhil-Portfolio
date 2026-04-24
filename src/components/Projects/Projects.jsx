@@ -1,47 +1,28 @@
-import React from "react";
-import Projectdesc from "./Projectdesc";
 import Image from "../../assets/ibrahim-shabil-DbYga9Ot9sU-unsplash.png";
 import Project1 from "../../assets/project1.png";
+import Projectdesc from "./Projectdesc";
 import { motion } from "framer-motion";
 
 const projects = [
   {
     img: Project1,
-    name: "HireMindAi-",
-    about: "Site for freshers",
+    name: "HireMind AI",
+    about: "AI Interview Platform",
     liveUrl: "https://hiremind-ai-org.vercel.app",
     githubLink: "https://github.com/Nikhil-Rajput0/HireMind-Ai",
     id: 1,
-    desc: "A online platform where you can prepares for your interview, by attending online interviews using Ai. Pay less enjoy more or just use free version.",
-    skills: ["Next.js", "Tailwind", "Node.js", "MongoDb"],
-    btn: ["View Live", "GitHub"],
+    desc: "Prepare for interviews using AI-powered mock sessions, resume tools, and real-time feedback.",
+    skills: ["Next.js", "Tailwind", "Node.js", "MongoDB"],
   },
   {
-    img: Image,
-    name: "Ginn-",
-    about: "A movie downloader",
-    id: 2,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima animi praesentium quisquam qui consectetur iure ut accusamus, deleniti quos fuga.",
-    skills: ["React", "Tailwind", "Html", "Css"],
-    btn: ["View Live", "GitHub"],
-  },
-  {
-    img: Image,
-    name: "Splash-",
-    about: "A movie downloader",
-    id: 3,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima animi praesentium quisquam qui consectetur iure ut accusamus, deleniti quos fuga.",
-    skills: ["React", "Tailwind", "Html", "Css"],
-    btn: ["View Live", "GitHub"],
-  },
-  {
-    img: Image,
-    name: "Parano-",
-    about: "A movie downloader",
-    id: 4,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima animi praesentium quisquam qui consectetur iure ut accusamus, deleniti quos fuga.",
-    skills: ["React", "Tailwind", "Html", "Css"],
-    btn: ["View Live", "GitHub"],
+    img: Project1,
+    name: "HireMind AI",
+    about: "AI Interview Platform",
+    liveUrl: "https://hiremind-ai-org.vercel.app",
+    githubLink: "https://github.com/Nikhil-Rajput0/HireMind-Ai",
+    id: 1,
+    desc: "Prepare for interviews using AI-powered mock sessions, resume tools, and real-time feedback.",
+    skills: ["Next.js", "Tailwind", "Node.js", "MongoDB"],
   },
 ];
 
@@ -49,28 +30,27 @@ function Projects() {
   return (
     <section
       id="Projects"
-      className="sm:px-[36px] md:px-0 py-[24px] overflow-hidden"
+      className="
+    py-24 px-4 lg:px-45
+    text-white
+    relative
+  "
     >
-      <div className="text-center py-[16px] md:py-[48px] lg:pt-[56px] lg:pb-[12px] text-[#f5f5f5] text-[27px] lg:text-[4vw] uppercase">
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-[#0958a8] via-[#0ff] to-[#0bf] inline-block">
-          Projects
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none" />
+      <div className="text-center mb-16 overflow-hidden">
+        <p className="text-sm overflow-hidden uppercase tracking-widest text-gray-400">
+          Portfolio
+        </p>
+        <h2 className="text-3xl overflow-hidden md:text-5xl font-semibold mt-3 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+          Featured Projects
         </h2>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "linear" }}
-        viewport={{ once: true }}
-        className="lg:px-[128px] lg:py-[16px]"
-      >
-        <div className="px-10 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-y-10 lg:gap-x-9">
-            {projects.map((project) => (
-              <Projectdesc header={project} key={project.id} />
-            ))}
-          </div>
-        </div>
-      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto overflow-hidden">
+        {projects.map((project) => (
+          <Projectdesc key={project.id} project={project} />
+        ))}
+      </div>
     </section>
   );
 }

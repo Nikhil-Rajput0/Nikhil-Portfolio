@@ -1,49 +1,108 @@
-import React from "react";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
-function Projectdesc({ header }) {
+function Projectdesc({ project }) {
   return (
-    <div className=" rounded-2xl border border-cyan-300 shadow-xl/180 bg-gradient-to-r from-[#232323] to-[#07070717]">
-      <div className="px-8 py-5">
+    <div
+      className="
+        group relative
+        rounded-2xl
+        overflow-hidden
+        border border-white/10
+        bg-gradient-to-br from-white/5 to-white/0
+        backdrop-blur-xl
+        shadow-[0_0_40px_rgba(0,255,255,0.08)]
+        hover:shadow-[0_0_60px_rgba(0,255,255,0.25)]
+        transition-all duration-500 
+      "
+    >
+      {/* 🔥 Glow Border Effect */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-cyan-400/20 via-blue-500/20 to-purple-500/20 blur-xl" />
+
+      {/* Image */}
+      <div className="relative overflow-hidden px-5 py-5">
         <img
-          src={header.img}
-          alt="project image"
-          className="w-full h-[190px] rounded-t-2xl"
-        ></img>
-        <h3 className="text-center text-[#0ff] text-3xl font-normal py-2">
-          {header.name}
-          <span className="text-lg text-[#f5f5f5]">{header.about}</span>
-        </h3>
-        <p className="text-center text-[#a4a4a4] font-light leading-5 pb-3 tracking-tight">
-          {header.desc}
-        </p>
-        <div className=" text-center">
-          {header.skills.map((item, i) => (
-            <button
+          src={project.img}
+          alt="project"
+          width={600}
+          height={400}
+          className="
+            w-full h-52 object-cover
+            transition-transform duration-700
+            group-hover:scale-110
+          "
+        />
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500" />
+      </div>
+
+      {/* Content */}
+      <div className="relative p-6 flex flex-col gap-4 z-10">
+        {/* Title */}
+        <div>
+          <h3 className="text-xl font-semibold text-white tracking-wide">
+            {project.name}
+          </h3>
+          <p className="text-sm text-gray-400">{project.about}</p>
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-300 text-sm leading-relaxed">{project.desc}</p>
+
+        {/* Skills */}
+        <div className="flex flex-wrap gap-2 ">
+          {project.skills.map((skill, i) => (
+            <span
               key={i}
-              className="border border-cyan-200 bg-gradient-to-r from-[#1aa] via-[#0bf] to-[#0ff] shadow-xl/40 px-4 rounded-full mr-3 mb-2"
+              className="
+                text-xs px-3 py-1 rounded-full
+                bg-white/10
+                border border-white/10
+                text-gray-300
+                backdrop-blur-md 
+              "
             >
-              {item}
-            </button>
+              {skill}
+            </span>
           ))}
         </div>
-        <div className="flex py-5 gap-1">
+
+        {/* Buttons */}
+        <div className="flex gap-3 mt-2 overflow-hidden">
           <a
+            href={project.liveUrl}
             target="_blank"
-            rel="noopener"
-            aria-label="Project Live Link"
-            href={header.liveUrl}
-            className="blink shadow-xl/60 z-1 relative font-semibold inline-flex bg-gradient-to-r from-[#157171] via-[#0bf] to-[#0ff] w-full items-center text-bold justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer overflow-hidden"
+            rel="noopener noreferrer"
+            className="
+              flex-1 flex items-center justify-center gap-2
+              px-4 py-2
+              rounded-full
+              bg-gradient-to-r from-cyan-500 to-blue-500
+              text-white text-sm font-medium
+              shadow-lg
+              hover:scale-105
+              transition overflow-hidden
+            "
           >
-            {header.btn[0]}
+            Live <FiExternalLink />
           </a>
+
           <a
+            href={project.githubLink}
             target="_blank"
-            rel="noopener"
-            aria-label="Project Github link"
-            href={header.githubLink}
-            className=" blink blink-2 shadow-xl/60 z-1 relative font-semibold inline-flex bg-transparent text-[#0ff] w-full items-center justify-center border-2 border-[#0ff] text-lg rounded-full py-[4px] cursor-pointer  overflow-hidden"
+            rel="noopener noreferrer"
+            className="
+              flex-1 flex items-center justify-center gap-2
+              px-4 py-2
+              rounded-full
+              border border-white/20
+              text-gray-300
+              text-sm font-medium
+              hover:bg-white/10
+              transition
+            "
           >
-            {header.btn[1]}
+            Code <FiGithub />
           </a>
         </div>
       </div>
